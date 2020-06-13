@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//github 接続後kajiブランチ切ってみた
 //classの継承を追加
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
