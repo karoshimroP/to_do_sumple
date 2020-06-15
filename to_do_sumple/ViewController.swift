@@ -31,6 +31,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //最初からあるコード
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(TodoKobetsunonakami)
         //追加画面で入力した内容を取得する
         if UserDefaults.standard.object(forKey: "TodoList") != nil {
             TodoKobetsunonakami = UserDefaults.standard.object(forKey: "TodoList") as! [String]
