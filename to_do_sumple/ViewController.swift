@@ -56,7 +56,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //スワイプしたセルを削除　※arrayNameは変数名に変更してください
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-//            arrayName.remove(at: indexPath.row)
+            TodoKobetsunonakami.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
         }
     }
