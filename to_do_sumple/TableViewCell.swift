@@ -1,18 +1,16 @@
 //
-//  TableViewCellController.swift
+//  TableViewCell.swift
 //  to_do_sumple
 //
-//  Created by itsuki kaji on 2020/06/15.
+//  Created by itsuki kaji on 2020/06/22.
 //  Copyright © 2020 itsuki kaji. All rights reserved.
 //
 
 import UIKit
 
-class TableViewCellController: UITableViewCell {
-@IBOutlet private weak var personLabel: UILabel!
-@IBOutlet private weak var doLabel: UILabel!
-    
+class TableViewCell: UITableViewCell {
 
+    @IBOutlet weak var personLabel:UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

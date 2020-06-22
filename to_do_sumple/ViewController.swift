@@ -10,6 +10,7 @@ import UIKit
 
 //classの継承を追加
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
 
     //UITableView、numberOfRowsInSectionの追加(表示するcell数を決める)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,12 +32,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //最初からあるコード
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(TodoKobetsunonakami)
         //追加画面で入力した内容を取得する
         if UserDefaults.standard.object(forKey: "TodoList") != nil {
             TodoKobetsunonakami = UserDefaults.standard.object(forKey: "TodoList") as! [String]
         }
+        print(TodoKobetsunonakami)
     }
+
     @IBAction func unwindPrev(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
         self.loadView()
         self.viewDidLoad()
