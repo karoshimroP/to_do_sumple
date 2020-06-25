@@ -11,7 +11,7 @@ import UIKit
 //classの継承を追加
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-
+@IBOutlet weak var tableView: UITableView!
     //UITableView、numberOfRowsInSectionの追加(表示するcell数を決める)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //戻り値の設定(表示するcell数)
@@ -26,10 +26,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //変数を作る
         let TodoCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
+        let label = TodoCell.viewWithTag(1) as! UILabel
+        label.text = "No." + String(indexPath.row + 1)
+        label.numberOfLines = 0
+        label.text = TodoKobetsunonakami[indexPath.row]
         //変数の中身を作る
-        TodoCell.textLabel!.text = TodoKobetsunonakami[indexPath.row]
+//        TodoCell.textLabel!.text = TodoKobetsunonakami[indexPath.row]
         //戻り値の設定（表示する中身)
-        return TodoCell
+            return TodoCell
     }
     
 //    func tableView2(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
