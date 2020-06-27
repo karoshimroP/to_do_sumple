@@ -11,21 +11,31 @@ import UIKit
 //classの継承を追加
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-    var ToDoArray:[String] = []
+@IBOutlet weak var tableView: UITableView!
+
     //UITableView、numberOfRowsInSectionの追加(表示するcell数を決める)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //戻り値の設定(表示するcell数)
         return TodoKobetsunonakami.count
     }
+//    func tableView2(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        //戻り値の設定(表示するcell数)
+//        return TodoKobetsunonakami2.count
+//    }
 
     //UITableView、cellForRowAtの追加(表示するcellの中身を決める)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //変数を作る
         let TodoCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
-        //変数の中身を作る
-        TodoCell.textLabel!.text = TodoKobetsunonakami[indexPath.row]
-        //戻り値の設定（表示する中身)
-        return TodoCell
+        if let label = TodoCell.viewWithTag(1) as? UILabel{
+        label.numberOfLines = 0
+            label.text = TodoKobetsunonakami[indexPath.row]
+        }
+        if let label2 = TodoCell.viewWithTag(2) as? UILabel{
+             label2.numberOfLines = 0
+                 label2.text = TodoKobetsunonakami2[indexPath.row]
+             }
+            return TodoCell
     }
 
  
@@ -39,7 +49,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         if UserDefaults.standard.object(forKey: "TodoList") != nil {
             TodoKobetsunonakami = UserDefaults.standard.object(forKey: "TodoList") as! [String]
         }
+        if UserDefaults.standard.object(forKey: "TodoList2") != nil {
+            TodoKobetsunonakami2 = UserDefaults.standard.object(forKey: "TodoList2") as! [String]
+        }
+//        print(TodoKobetsunonakami)
+//        print(TodoKobetsunonakami2)
     }
+
     @IBAction func unwindPrev(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
         self.navigationController?.isNavigationBarHidden = false
         navigationItem.title = "title"
@@ -47,6 +63,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.loadView()
         self.viewDidLoad()
     }
+
     //セルの編集許可
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
