@@ -7,11 +7,12 @@
 //
 
 import UIKit
-
+//github 接続後kajiブランチ切ってみた
 //classの継承を追加
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    
+
 @IBOutlet weak var tableView: UITableView!
+
     //UITableView、numberOfRowsInSectionの追加(表示するcell数を決める)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //戻り値の設定(表示するcell数)
@@ -41,6 +42,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //最初からあるコード
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
+        navigationItem.title = "title"
+        navigationItem.rightBarButtonItem = editButtonItem
         //追加画面で入力した内容を取得する
         if UserDefaults.standard.object(forKey: "TodoList") != nil {
             TodoKobetsunonakami = UserDefaults.standard.object(forKey: "TodoList") as! [String]
@@ -53,15 +57,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
 
     @IBAction func unwindPrev(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
+        self.navigationController?.isNavigationBarHidden = false
+        navigationItem.title = "title"
+        navigationItem.rightBarButtonItem = editButtonItem
         self.loadView()
         self.viewDidLoad()
     }
-    
+
     //セルの編集許可
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
         return true
     }
+
     //スワイプしたセルを削除　※arrayNameは変数名に変更してください
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
@@ -69,6 +77,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
         }
     }
+
     //最初からあるコード
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
