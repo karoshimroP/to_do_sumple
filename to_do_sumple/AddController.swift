@@ -13,7 +13,7 @@ var TodoKobetsunonakami = [String]()
 var TodoKobetsunonakami2 = [String]()
 
 class AddController: UIViewController {
-
+let datePicker = UIDatePicker()
     //テキストフィールドの設定
     @IBOutlet weak var TodoTextField: UITextField!
     @IBOutlet weak var TodoTextField2: UITextField!
@@ -33,8 +33,47 @@ class AddController: UIViewController {
     //最初からあるコード
     override func viewDidLoad() {
         super.viewDidLoad()
+        createDatePicker()
     }
+    func createDatePicker(){
 
+           // DatePickerModeをDate(日付)に設定
+           datePicker.datePickerMode = .date
+
+           // DatePickerを日本語化
+           datePicker.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
+
+           // textFieldのinputViewにdatepickerを設定
+           TodoTextField.inputView = datePicker
+
+           // UIToolbarを設定
+           let toolbar = UIToolbar()
+           toolbar.sizeToFit()
+
+           // Doneボタンを設定(押下時doneClickedが起動)
+           let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneClicked))
+
+           // Doneボタンを追加
+           toolbar.setItems([doneButton], animated: true)
+
+           // FieldにToolbarを追加
+           TodoTextField.inputAccessoryView = toolbar
+    }
+    @objc func doneClicked(){
+        let dateFormatter = DateFormatter()
+
+        // 持ってくるデータのフォーマットを設定
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale    = NSLocale(localeIdentifier: "ja_JP") as Locale?
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+
+        // textFieldに選択した日付を代入
+        TodoTextField.text = dateFormatter.string(from: datePicker.date)
+
+        // キーボードを閉じる
+        self.view.endEditing(true)
+    }
     //最初からあるコード
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
