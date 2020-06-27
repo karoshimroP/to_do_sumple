@@ -26,24 +26,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //変数を作る
         let TodoCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
-        let label = TodoCell.viewWithTag(1) as! UILabel
-        label.text = "No." + String(indexPath.row + 1)
+        if let label = TodoCell.viewWithTag(1) as? UILabel{
         label.numberOfLines = 0
-        label.text = TodoKobetsunonakami[indexPath.row]
-        //変数の中身を作る
-//        TodoCell.textLabel!.text = TodoKobetsunonakami[indexPath.row]
-        //戻り値の設定（表示する中身)
+            label.text = TodoKobetsunonakami[indexPath.row]
+        }
+        if let label2 = TodoCell.viewWithTag(2) as? UILabel{
+             label2.numberOfLines = 0
+                 label2.text = TodoKobetsunonakami2[indexPath.row]
+             }
             return TodoCell
     }
-    
-//    func tableView2(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        //変数を作る
-//        let TodoCell2 : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell2", for: indexPath)
-//        //変数の中身を作る
-//        TodoCell2.textLabel!.text = TodoKobetsunonakami2[indexPath.row]
-//        //戻り値の設定（表示する中身)
-//        return TodoCell2
-//    }
 
  
     //最初からあるコード
@@ -53,11 +45,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         if UserDefaults.standard.object(forKey: "TodoList") != nil {
             TodoKobetsunonakami = UserDefaults.standard.object(forKey: "TodoList") as! [String]
         }
-//        if UserDefaults.standard.object(forKey: "TodoList2") != nil {
-//            TodoKobetsunonakami2 = UserDefaults.standard.object(forKey: "TodoList2") as! [String]
-//        }
-        print(TodoKobetsunonakami)
-        print(TodoKobetsunonakami2)
+        if UserDefaults.standard.object(forKey: "TodoList2") != nil {
+            TodoKobetsunonakami2 = UserDefaults.standard.object(forKey: "TodoList2") as! [String]
+        }
+//        print(TodoKobetsunonakami)
+//        print(TodoKobetsunonakami2)
     }
 
     @IBAction func unwindPrev(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
