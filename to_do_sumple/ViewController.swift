@@ -7,21 +7,19 @@
 //
 
 import UIKit
-//github 接続後kajiブランチ切ってみた
 //classの継承を追加
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
 @IBOutlet weak var tableView: UITableView!
-
+//プルダウンによるリフレッシュのインスタンス
+   private let refreshCtl = UIRefreshControl()
+    
     //UITableView、numberOfRowsInSectionの追加(表示するcell数を決める)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //戻り値の設定(表示するcell数)
         return TodoKobetsunonakami.count
     }
-//    func tableView2(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        //戻り値の設定(表示するcell数)
-//        return TodoKobetsunonakami2.count
-//    }
+
 
     //UITableView、cellForRowAtの追加(表示するcellの中身を決める)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,14 +35,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
              }
             return TodoCell
     }
-
+    
  
     //最初からあるコード
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
         navigationItem.title = "title"
-        navigationItem.rightBarButtonItem = editButtonItem
         //追加画面で入力した内容を取得する
         if UserDefaults.standard.object(forKey: "TodoList") != nil {
             TodoKobetsunonakami = UserDefaults.standard.object(forKey: "TodoList") as! [String]
@@ -52,17 +49,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         if UserDefaults.standard.object(forKey: "TodoList2") != nil {
             TodoKobetsunonakami2 = UserDefaults.standard.object(forKey: "TodoList2") as! [String]
         }
-//        print(TodoKobetsunonakami)
-//        print(TodoKobetsunonakami2)
+        tableView.refreshControl = refreshCtl
+        refreshCtl.addTarget(self, action: #selector(ViewController.refresh(sender:)), for: .valueChanged)
+        print(TodoKobetsunonakami)
+        print(TodoKobetsunonakami2)
+    }
+    
+    @objc func refresh(sender: UIRefreshControl) {
+        // ここが引っ張られるたびに呼び出される
+        // 通信終了後、endRefreshingを実行することでロードインジケーター（くるくる）が終了
+//データの更新
+        viewDidLoad()
+//テーブルのデータの更新
+        tableView?.reloadData()
+        //くるくるを消す
+        refreshCtl.endRefreshing()
     }
 
-    @IBAction func unwindPrev(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
-        self.navigationController?.isNavigationBarHidden = false
-        navigationItem.title = "title"
-        navigationItem.rightBarButtonItem = editButtonItem
-        self.loadView()
-        self.viewDidLoad()
-    }
 
     //セルの編集許可
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
@@ -74,6 +77,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             TodoKobetsunonakami.remove(at: indexPath.row)
+            UserDefaults.standard.set(TodoKobetsunonakami, forKey: "TodoList" )
+            TodoKobetsunonakami2.remove(at: indexPath.row)
+            UserDefaults.standard.set(TodoKobetsunonakami2, forKey: "TodoList2" )
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
         }
     }

@@ -14,6 +14,7 @@
 		12555CB124927104008BA589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12555CB024927104008BA589 /* Assets.xcassets */; };
 		12555CB424927104008BA589 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12555CB224927104008BA589 /* LaunchScreen.storyboard */; };
 		12555CBE249276FA008BA589 /* AddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12555CBD249276FA008BA589 /* AddController.swift */; };
+		98B2B5E224A86AF500A30B3A /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 98B2B5E124A86AF500A30B3A /* AppIcon.appiconset */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		12555CB324927104008BA589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12555CB524927104008BA589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12555CBD249276FA008BA589 /* AddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddController.swift; sourceTree = "<group>"; };
+		98B2B5E124A86AF500A30B3A /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = Assets.xcassets/AppIcon.appiconset; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				12555CAD249270FB008BA589 /* Main.storyboard */,
 				12555CBD249276FA008BA589 /* AddController.swift */,
 				12555CB024927104008BA589 /* Assets.xcassets */,
+				98B2B5E124A86AF500A30B3A /* AppIcon.appiconset */,
 				12555CB224927104008BA589 /* LaunchScreen.storyboard */,
 				12555CB524927104008BA589 /* Info.plist */,
 			);
@@ -128,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B2B5E224A86AF500A30B3A /* AppIcon.appiconset in Resources */,
 				12555CB424927104008BA589 /* LaunchScreen.storyboard in Resources */,
 				12555CB124927104008BA589 /* Assets.xcassets in Resources */,
 				12555CAF249270FB008BA589 /* Main.storyboard in Resources */,

@@ -59,6 +59,9 @@ let datePicker = UIDatePicker()
            // FieldにToolbarを追加
            TodoTextField.inputAccessoryView = toolbar
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     @objc func doneClicked(){
         let dateFormatter = DateFormatter()
 
