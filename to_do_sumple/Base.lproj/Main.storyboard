@@ -29,18 +29,21 @@
         <!--chart-->
         <scene sceneID="Q2g-za-A20">
             <objects>
-                <viewController id="Pc6-Zr-6U1" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Pg2-X7-IJe">
+                <viewController id="Pc6-Zr-6U1" customClass="ChartController" customModule="to_do_sumple" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pg2-X7-IJe" customClass="PieChartView" customModule="Charts">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="56R-Gf-lNV"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="chart" image="chart.pie" catalog="system" id="EaG-sg-GLU"/>
+                    <connections>
+                        <outlet property="PieChartView" destination="Pg2-X7-IJe" id="HHB-9H-emX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjc-KZ-ZSL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1404" y="-712"/>
+            <point key="canvasLocation" x="-1404" y="-712.89355322338838"/>
         </scene>
         <!--List-->
         <scene sceneID="tne-QT-ifu">
