@@ -15,6 +15,8 @@
 		12555CB424927104008BA589 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12555CB224927104008BA589 /* LaunchScreen.storyboard */; };
 		12555CBE249276FA008BA589 /* AddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12555CBD249276FA008BA589 /* AddController.swift */; };
 		98B2B5E224A86AF500A30B3A /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 98B2B5E124A86AF500A30B3A /* AppIcon.appiconset */; };
+		98B2B5EA24A8A2DF00A30B3A /* ChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B2B5E924A8A2DF00A30B3A /* ChartController.swift */; };
+		A66AD0212A59F461B320BB42 /* Pods_to_do_sumple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F1376A4C712A4F6604428EB /* Pods_to_do_sumple.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +29,11 @@
 		12555CB324927104008BA589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12555CB524927104008BA589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12555CBD249276FA008BA589 /* AddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddController.swift; sourceTree = "<group>"; };
+		1F1376A4C712A4F6604428EB /* Pods_to_do_sumple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_to_do_sumple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27135376A82AF379C10E4BF9 /* Pods-to_do_sumple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-to_do_sumple.release.xcconfig"; path = "Target Support Files/Pods-to_do_sumple/Pods-to_do_sumple.release.xcconfig"; sourceTree = "<group>"; };
+		4492505B34E595B2D2026E2D /* Pods-to_do_sumple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-to_do_sumple.debug.xcconfig"; path = "Target Support Files/Pods-to_do_sumple/Pods-to_do_sumple.debug.xcconfig"; sourceTree = "<group>"; };
 		98B2B5E124A86AF500A30B3A /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = Assets.xcassets/AppIcon.appiconset; sourceTree = "<group>"; };
+		98B2B5E924A8A2DF00A30B3A /* ChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A66AD0212A59F461B320BB42 /* Pods_to_do_sumple.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +53,8 @@
 			children = (
 				12555CA6249270FB008BA589 /* to_do_sumple */,
 				12555CA5249270FB008BA589 /* Products */,
+				3DF7E0A8ED6C4774F516839F /* Pods */,
+				957E427D8F2335136235A9E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,14 +72,33 @@
 				12555CA7249270FB008BA589 /* AppDelegate.swift */,
 				12555CA9249270FB008BA589 /* SceneDelegate.swift */,
 				12555CAB249270FB008BA589 /* ViewController.swift */,
-				12555CAD249270FB008BA589 /* Main.storyboard */,
+				98B2B5E924A8A2DF00A30B3A /* ChartController.swift */,
 				12555CBD249276FA008BA589 /* AddController.swift */,
+				12555CAD249270FB008BA589 /* Main.storyboard */,
 				12555CB024927104008BA589 /* Assets.xcassets */,
 				98B2B5E124A86AF500A30B3A /* AppIcon.appiconset */,
 				12555CB224927104008BA589 /* LaunchScreen.storyboard */,
 				12555CB524927104008BA589 /* Info.plist */,
 			);
 			path = to_do_sumple;
+			sourceTree = "<group>";
+		};
+		3DF7E0A8ED6C4774F516839F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4492505B34E595B2D2026E2D /* Pods-to_do_sumple.debug.xcconfig */,
+				27135376A82AF379C10E4BF9 /* Pods-to_do_sumple.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		957E427D8F2335136235A9E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F1376A4C712A4F6604428EB /* Pods_to_do_sumple.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,9 +108,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12555CB824927104008BA589 /* Build configuration list for PBXNativeTarget "to_do_sumple" */;
 			buildPhases = (
+				763242A88F478634F10CDC44 /* [CP] Check Pods Manifest.lock */,
 				12555CA0249270FB008BA589 /* Sources */,
 				12555CA1249270FB008BA589 /* Frameworks */,
 				12555CA2249270FB008BA589 /* Resources */,
+				31AC057C8E90A03423B3142B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,11 +170,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		31AC057C8E90A03423B3142B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-to_do_sumple/Pods-to_do_sumple-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-to_do_sumple/Pods-to_do_sumple-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-to_do_sumple/Pods-to_do_sumple-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		763242A88F478634F10CDC44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-to_do_sumple-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		12555CA0249270FB008BA589 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B2B5EA24A8A2DF00A30B3A /* ChartController.swift in Sources */,
 				12555CAC249270FB008BA589 /* ViewController.swift in Sources */,
 				12555CA8249270FB008BA589 /* AppDelegate.swift in Sources */,
 				12555CAA249270FB008BA589 /* SceneDelegate.swift in Sources */,
@@ -290,6 +363,7 @@
 		};
 		12555CB924927104008BA589 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4492505B34E595B2D2026E2D /* Pods-to_do_sumple.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -308,6 +382,7 @@
 		};
 		12555CBA24927104008BA589 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27135376A82AF379C10E4BF9 /* Pods-to_do_sumple.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
