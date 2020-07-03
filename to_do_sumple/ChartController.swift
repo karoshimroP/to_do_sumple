@@ -15,35 +15,42 @@ class ChartController: UIViewController{
     
     override func viewDidLoad() {
            super.viewDidLoad()
-           // 円グラフの中心に表示するタイトル
-           self.PieChartView.centerText = "テストデータ"
-           
-           // グラフに表示するデータのタイトルと値
-           let dataEntries = [
-               PieChartDataEntry(value: 40, label: "A"),
-               PieChartDataEntry(value: 35, label: "B"),
-               PieChartDataEntry(value: 25, label: "C")
-           ]
-           
-        let dataSet = PieChartDataSet(entries: dataEntries, label: "テストデータ")
+        
+//        let animals = ["イヌ", "ネコ", "ヤギ", "イヌ", "ネコ", "ヤギ", "イヌ", "ネコ", "イヌ", "ハムスター", "ヤギ", "モルモット", "ウサギ", "ウサギ"]
+        let animals = TodoKobetsunonakami2
+    
 
-           // グラフの色
-           dataSet.colors = ChartColorTemplates.vordiplom()
-           // グラフのデータの値の色
-           dataSet.valueTextColor = UIColor.black
-           // グラフのデータのタイトルの色
-           dataSet.entryLabelColor = UIColor.black
-
-           self.PieChartView.data = PieChartData(dataSet: dataSet)
-           
-           // データを％表示にする
-           let formatter = NumberFormatter()
-           formatter.numberStyle = .percent
-           formatter.maximumFractionDigits = 2
-           formatter.multiplier = 1.0
-           self.PieChartView.data?.setValueFormatter(DefaultValueFormatter(formatter: formatter))
-           self.PieChartView.usePercentValuesEnabled = true
-           
-//           view.addSubview(self.PieChartView)
+        let dict = animals.reduce(into: [:]) { $0[$1, default: 0] += 1 }
+        let persons = [String](dict.keys)
+        let counts = [Int](dict.values)
+        print(dict)
+        print(persons)
+        print(counts)
+        setChart(dataPoints: persons, values: counts)
     }
-}
+    func setChart(dataPoints: [String], values: [Int]){
+        var dataEntries: [PieChartDataEntry] = []
+
+        for i in 0..<dataPoints.count {
+            let dataEntry1 = PieChartDataEntry(value: Double(values[i]), label: dataPoints[i])
+
+            dataEntries.append(dataEntry1)
+            print(dataEntries)
+            
+        }
+            print(dataEntries)
+        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "Units Sold")
+            let pieChartData = PieChartData(dataSet: pieChartDataSet)
+            PieChartView.data = pieChartData
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 2
+        formatter.multiplier = 1.0
+        PieChartView.data?.setValueFormatter(DefaultValueFormatter(formatter: formatter))
+        PieChartView.usePercentValuesEnabled = true
+
+
+        }
+    }
+
